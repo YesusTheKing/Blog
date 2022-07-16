@@ -1,0 +1,7 @@
+<div>
+    Yesus Blogs
+</div>
+{% for blog in data %}
+    <p>{{blog.BlogHeader}}</p>
+    <a href="{% url 'BlogPost:detail' blog_id=blog.BlogId %}">goto</a>
+{% endfor %}

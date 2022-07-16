@@ -1,0 +1,8 @@
+{% for blog in data %}
+    <p>{{blog.BlogHeader}}</p>
+    <div>{{blog.BlogRichContent | safe}}</div>
+    {% for com in comments%}
+    {{com.BlogComment}}
+    {% endfor %}
+    
+{% endfor %}

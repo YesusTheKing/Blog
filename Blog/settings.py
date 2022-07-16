@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'djrichtextfield',
+    'BlogPost'
 ]
 
 MIDDLEWARE = [
@@ -54,7 +56,7 @@ ROOT_URLCONF = 'Blog.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -69,6 +71,28 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'Blog.wsgi.application'
 
+
+# Rich Text editor
+
+DJRICHTEXTFIELD_CONFIG = {
+    'js': ['//cdn.ckeditor.com/4.14.0/standard/ckeditor.js'],
+    'init_template': 'djrichtextfield/init/ckeditor.js',
+    'css': {
+        'all': [
+            'https://cdn.example.com/css/editor.css'
+        ]
+    },
+    'settings': {  # CKEditor
+        'toolbar': [
+                {'items': ['Format', '-', 'Bold', 'Italic', '-',
+                        'RemoveFormat']},
+                {'items': ['Link', 'Unlink', 'Image', 'Table']},
+                {'items': ['Source']}
+            ],
+            'format_tags': 'p;h1;h2;h3',
+            'width': 700
+    }
+}
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
